@@ -48,19 +48,6 @@ project/
 ├── vehicles_us.csv
 └── README.md
 
-# Running the Application
-
-1. Clone the repository:
-
-git clone <repository-url>
-
-2. Install dependencies:
-
-pip install -r requirements.txt
-
-3. Run the Streamlit application:
-
-streamlit run app.py
 
 # Author
 
