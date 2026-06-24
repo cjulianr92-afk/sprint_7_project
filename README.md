@@ -53,6 +53,6 @@ project/
 
 Cristian Julian Rodriguez Valbuena
 
-Electronic Engineering Student | Data Analyst in Training
+Electronic Engineering Student | Data Analyst Student
 
 Montreal, Quebec, Canada
