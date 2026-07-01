@@ -66,10 +66,10 @@ filtered_data = car_data[
     (car_data["model_year"] <= year_range[1])
 ]
 
-st.subheader("Dataset Sample")
+st.subheader("Dataset Preview")
 st.dataframe(filtered_data.head())
 
-st.subheader("Vehicle Mileage Distribution")
+st.subheader("Mileage Distribution")
 fig_hist = px.histogram(
     filtered_data,
     x="odometer",
