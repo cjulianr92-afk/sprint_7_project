@@ -3,13 +3,13 @@ import plotly.express as px
 import streamlit as st
 
 st.set_page_config(
-    page_title='Análisis de Vehículos Usados',
+    page_title='Used Vehicle Market Analysis',
     page_icon='🚗',
     layout='wide'
 )
 
 # =================
-# CARGA DE DATOS
+# DATA LOADING
 # =================
 
 
@@ -23,7 +23,7 @@ def load_data():
     data['paint_color'] = data['paint_color'].fillna('unknown')
     data['is_4wd'] = data['is_4wd'].fillna(0)
 
-    # Convertir fecha
+    # Convert date
     data['date_posted'] = pd.to_datetime(data['date_posted'])
 
     return data
@@ -32,26 +32,30 @@ def load_data():
 car_data = load_data()
 
 # ==================
-# TITULO
+# TITLE
 # ==================
-st.title('🚗 Análisis de Vehículos Usados en Estados Unidos')
+st.title('🚗 Used Vehicle Market Analysis')
 
 st.write(
-    'Esta aplicación permite explorar un conjunto de datos de anuncios de vehículos usados. '
-    'Aquí puedes analizar precios, kilometraje, tipo de vehículo, condiciones y comportamiento '
-    'de publicación de anuncios'
+    """
+    This interactive dashboard allows users to explore a dataset of used vehicle listings
+    in the United States. Analyze pricing, mileage, vehicle types, and market trends
+    through interactive visualizations.
+    """
 )
 
+st.markdown("---")
+
 # ==================
-# SIDEBAR FILTROS
+# SIDEBAR FILTERS
 # ==================
-st.sidebar.header('Filtros')
+st.sidebar.header('Filters')
 
 min_year = int(car_data['model_year'].min())
 max_year = int(car_data['model_year'].max())
 
 year_range = st.sidebar.slider(
-    'Rango de años del modelo',
+    'Model Year Range',
     min_year,
     max_year,
     (min_year, max_year)
@@ -62,7 +66,7 @@ filtered_data = car_data[
     (car_data["model_year"] <= year_range[1])
 ]
 
-st.subheader("Dataset Preview")
+st.subheader("Dataset Sample")
 st.dataframe(filtered_data.head())
 
 st.subheader("Vehicle Mileage Distribution")
